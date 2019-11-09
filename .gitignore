@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+
+# Secrets
+local.env
+prod.env
+
+# VIM
+*.swp

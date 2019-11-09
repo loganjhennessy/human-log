@@ -1,0 +1,13 @@
+version: 3.7
+
+services:
+  human-log-ui:
+    build:
+      context: ./services/human-log-ui
+
+  notes-api:
+    build:
+      context: ./services/notes-api
+
+  db:
+    image: postgres:12.0
