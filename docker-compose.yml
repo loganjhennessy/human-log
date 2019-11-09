@@ -1,13 +1,9 @@
-version: 3.7
+version: '3.7'
 
 services:
   human-log-ui:
     build:
       context: ./services/human-log-ui
+    ports:
+      - "80:80"
 
-  notes-api:
-    build:
-      context: ./services/notes-api
-
-  db:
-    image: postgres:12.0
