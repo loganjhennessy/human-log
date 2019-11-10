@@ -5,3 +5,7 @@ authors = ["Logan Hennessy <loganjhennessy@gmail.com"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
+python-dotenv = "^0.10.3"
+requests = "^2.22"
+six = "^1.13"
+authlib = "^0.12.1"

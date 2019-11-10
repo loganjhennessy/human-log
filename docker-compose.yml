@@ -1,9 +1,12 @@
-version: '3.7'
+version: "3.7"
 
 services:
   human-log-ui:
     build:
-      context: ./services/human-log-ui
+      context: "./services/human-log-ui"
     ports:
       - "80:80"
-
+    environment:
+      FLASK_DEBUG: 1
+    volumes: 
+      - "./services/human-log-ui/app/app:/app/app"
