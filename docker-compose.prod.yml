@@ -7,8 +7,6 @@ services:
     env_file:
       - ./deploy/base.env
       - ./deploy/secrets.env
-      - ./deploy/local.env
+      - ./deploy/prod.env
     ports:
       - "80:80"
-    volumes: 
-      - "./services/human-log-ui/app/app:/app/app"

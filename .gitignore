@@ -2,8 +2,7 @@
 __pycache__/
 
 # Secrets
-local.env
-prod.env
+*secrets.env
 
 # VIM
 *.swp

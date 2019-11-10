@@ -1,11 +1,9 @@
-# /server.py
-
-from functools import wraps
+import constants
 import json
+from functools import wraps
 from os import environ as env
 from werkzeug.exceptions import HTTPException
 
-from dotenv import load_dotenv, find_dotenv
 from flask import Flask
 from flask import jsonify
 from flask import redirect
@@ -15,19 +13,24 @@ from flask import url_for
 from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
 
-app = Flask(__name__)
-app.config['SECRET_KEY'] = 'super-secret'
+AUTH0_CALLBACK_URL=env.get(constants.AUTH0_CALLBACK_URL)
+AUTH0_CLIENT_ID=env.get(constants.AUTH0_CLIENT_ID)
+AUTH0_CLIENT_SECRET=env.get(constants.AUTH0_CLIENT_SECRET)
+AUTH0_DOMAIN=env.get(constants.AUTH0_DOMAIN)
+SECRET_KEY=env.get(constants.SECRET_KEY)
 
+app = Flask(__name__)
+app.config['SECRET_KEY'] = SECRET_KEY
 
 oauth = OAuth(app)
 
 auth0 = oauth.register(
     'auth0',
-    client_id='SnBnggTkFNPW9tMYo475c3BOqWnDvemM',
-    client_secret='toPSp0vdH3ZeW7-2eMSIeq6ahcQlhpEXMr9XUz9DVbMMEV3afPsMgv0b36HX1djb',
-    api_base_url='https://loganjhennessy.auth0.com',
-    access_token_url='https://loganjhennessy.auth0.com/oauth/token',
-    authorize_url='https://loganjhennessy.auth0.com/authorize',
+    client_id=AUTH0_CLIENT_ID,
+    client_secret=AUTH0_CLIENT_SECRET,
+    api_base_url=f'https://{AUTH0_DOMAIN}',
+    access_token_url=f'https://{AUTH0_DOMAIN}/oauth/token',
+    authorize_url=f'https://{AUTH0_DOMAIN}/authorize',
     client_kwargs={
         'scope': 'openid profile email',
     },
@@ -71,7 +74,7 @@ def callback_handler():
 
 @app.route('/login')
 def login():
-    return auth0.authorize_redirect(redirect_uri='http://localhost/callback')
+    return auth0.authorize_redirect(redirect_uri=AUTH0_CALLBACK_URL)
 
 
 @app.route('/logout')
@@ -79,5 +82,5 @@ def logout():
     # Clear session stored data
     session.clear()
     # Redirect user to logout endpoint
-    params = {'returnTo': url_for('index', _external=True), 'client_id': 'SnBnggTkFNPW9tMYo475c3BOqWnDvemM'}
+    params = {'returnTo': url_for('index', _external=True), 'client_id': AUTH0_CLIENT_ID}
     return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
