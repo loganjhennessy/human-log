@@ -1,4 +1,3 @@
-import constants
 import json
 from functools import wraps
 from os import environ as env
@@ -13,11 +12,11 @@ from flask import url_for
 from authlib.flask.client import OAuth
 from six.moves.urllib.parse import urlencode
 
-AUTH0_CALLBACK_URL=env.get(constants.AUTH0_CALLBACK_URL)
-AUTH0_CLIENT_ID=env.get(constants.AUTH0_CLIENT_ID)
-AUTH0_CLIENT_SECRET=env.get(constants.AUTH0_CLIENT_SECRET)
-AUTH0_DOMAIN=env.get(constants.AUTH0_DOMAIN)
-SECRET_KEY=env.get(constants.SECRET_KEY)
+AUTH0_CALLBACK_URL=env.get('AUTH0_CALLBACK_URL')
+AUTH0_CLIENT_ID=env.get('AUTH0_CLIENT_ID')
+AUTH0_CLIENT_SECRET=env.get('AUTH0_CLIENT_SECRET')
+AUTH0_DOMAIN=env.get('AUTH0_DOMAIN')
+SECRET_KEY=env.get('SECRET_KEY')
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = SECRET_KEY
