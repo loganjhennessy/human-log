@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
-	<h1>Totally wicked!</h1>
-	
+	<section class="hero is-fullheight">
+		<div class="hero-body">
+			<div class="container has-text-centered">
+				<h1 class="title">
+					The Human Log
+				</h1>
+			</div>
+		</div>
+		<div class="hero-foot">
+			<nav class="tabs is-boxed is-fullwidth">
+				<div class="container">
+					<ul>
+						{% if logged_in %}
+						<li><a href="/logout">Logout</a></li>
+						{% else %}
+						<li><a href="/login">Login</a></li>
+						{% endif %}
+					</ul>
+				</div>
+			</nav>
+		</div>
+	</section>
 {% endblock %}

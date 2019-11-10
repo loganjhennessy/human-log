@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "human-log-ui"
 version = "0.1.0"
-authors = ["Logan Hennessy <loganjhennessy@gmail.com"]
+authors = ["Logan Hennessy <loganjhennessy@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
