@@ -1,5 +1,7 @@
 # The Human Log
 
+Available at human-log.resilient-tech.net.
+
 ## Deploying
 
 ### GCP Login
@@ -18,7 +20,7 @@ docker-compose -f docker-compose.prod.yml push
 gcloud beta run deploy human-log --image gcr.io/resilient-tech/humanlog --platform managed
 ```
 
-## Deploy to Cloud Run
+### Deploy to Cloud Run
 
 ```bash
 gcloud beta run deploy human-log \
