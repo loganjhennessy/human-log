@@ -2,7 +2,7 @@
 
 An implementation of [The Human Log](https://neilkakkar.com/the-human-log.html).
 
-Available at [human-log.resilient-tech.net](https://neilkakkar.com/the-human-log.html).
+Available at [human-log.resilient-tech.net](https://human-log.resilient-tech.net/).
 
 Very much a work-in-progress.
 
@@ -32,7 +32,7 @@ gcloud beta run deploy human-log \
 	--platform managed \
 	--set-env-vars \
 		AUTH0_CALLBACK_URL=https://human-log.resilient-tech.net/callback,\
-		AUTH0_CLIENT_ID=SnBnggTkFNPW9tMYo475c3BOqWnDvemM,\
+		AUTH0_CLIENT_ID=${AUTH0_CLIENT_ID},\
 		AUTH0_CLIENT_SECRET=${AUTH0_CLIENT_SECRET},\
 		AUTH0_DOMAIN=loganjhennessy.auth0.com,\
 		SECRET_KEY=${SECRET_KEY},\
