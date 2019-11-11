@@ -1,6 +1,10 @@
 # The Human Log
 
-Available at human-log.resilient-tech.net.
+An implementation of [The Human Log](https://neilkakkar.com/the-human-log.html).
+
+Available at [human-log.resilient-tech.net](https://neilkakkar.com/the-human-log.html).
+
+Very much a work-in-progress.
 
 ## Deploying
 
