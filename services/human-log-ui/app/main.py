@@ -16,6 +16,7 @@ AUTH0_CALLBACK_URL=env.get('AUTH0_CALLBACK_URL')
 AUTH0_CLIENT_ID=env.get('AUTH0_CLIENT_ID')
 AUTH0_CLIENT_SECRET=env.get('AUTH0_CLIENT_SECRET')
 AUTH0_DOMAIN=env.get('AUTH0_DOMAIN')
+SCHEME=env.get('SCHEME')
 SECRET_KEY=env.get('SECRET_KEY')
 
 app = Flask(__name__)
@@ -81,5 +82,5 @@ def logout():
     # Clear session stored data
     session.clear()
     # Redirect user to logout endpoint
-    params = {'returnTo': url_for('index', _external=True), 'client_id': AUTH0_CLIENT_ID}
+    params = {'returnTo': url_for('index', _scheme=SCHEME, _external=True), 'client_id': AUTH0_CLIENT_ID}
     return redirect(auth0.api_base_url + '/v2/logout?' + urlencode(params))
