@@ -8,5 +8,4 @@ services:
       - ./deploy/base.env
       - ./deploy/secrets.env
       - ./deploy/prod.env
-    ports:
-      - "80:80"
+    image: gcr.io/resilient-tech/humanlog
