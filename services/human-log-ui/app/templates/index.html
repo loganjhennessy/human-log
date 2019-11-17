@@ -1,25 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
-    <section class="hero is-fullheight">
-        <div class="hero-body">
-            <div class="container has-text-centered">
-                <h1 class="title">
-                    The Human Log
-                </h1>
-            </div>
-        </div>
-        <div class="hero-foot">
-            <nav class="tabs is-boxed is-fullwidth">
-                <div class="container">
-                    <ul>
-                        {% if logged_in %}
-                        <li><a href="/logout">Logout</a></li>
-                        {% else %}
-                        <li><a href="/login">Login</a></li>
-                        {% endif %}
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </section>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="masthead mb-auto">
+    </header>
+    <main role="main" class="inner cover">
+        <h1>The Human Log</h1>
+            {% if logged_in %}
+            <a class="btn btn-outline-dark" href="/logout">Logout</a>
+            {% else %}
+            <a class="btn btn-outline-dark" href="/login">Login</a>
+            {% endif %}
+    </main>
+    <footer class="mastfoot mt-auto">
+    </footer>
+</div>
 {% endblock %}

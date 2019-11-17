@@ -9,6 +9,6 @@ services:
       - ./deploy/secrets.env
       - ./deploy/local.env
     volumes:
-      - "./services/human-log-ui/app/app:/app/app"
+      - "./services/human-log-ui/app:/app"
     ports:
-      - "80:7000"
+      - "80:7070"
