@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block head %}
+<head>
+    {% include "responsives.html" %}
+    <title>The Human Log</title>
+    {% include "styles.html" %}
+</head>
+{% endblock %}
+{% block body %}
+<body class="text-center">
+    <div class="input-group">
+		<textarea class="form-control"></textarea>
+	</div>
+    <a class="btn btn-outline-dark" href="/logout">Logout</a>
+</body>
+{% endblock %}

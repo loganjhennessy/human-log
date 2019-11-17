@@ -51,8 +51,18 @@ def requires_auth(f):
 @app.route('/')
 @app.route('/index')
 def index():
-    logged_in = session.get('profile') is not None
-    return render_template('index.html', logged_in=logged_in)
+    if session.get('profile') is not None:
+        return redirect(url_for("log"))
+    else:
+        return render_template("login.html")
+
+    # return render_template('index.html', logged_in=logged_in)
+
+
+@app.route('/log')
+@requires_auth
+def log():
+    return render_template("log.html")
 
 
 @app.route('/callback')
@@ -69,7 +79,7 @@ def callback_handler():
         'name': userinfo['name'],
         'picture': userinfo['picture']
     }
-    return redirect('/index')
+    return redirect('/log')
 
 
 @app.route('/login')

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block head %}
+<head>
+    {% include "responsives.html" %}
+    <title>The Human Log</title>
+    {% include "styles.html" %}
+</head>
+{% endblock %}
+{% block body %}
+<body class="text-center">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+        </header>
+        <main role="main" class="inner cover">
+            <h1>The Human Log</h1>
+            <a class="btn btn-outline-dark" href="/login">Login</a>
+        </main>
+        <footer class="mastfoot mt-auto">
+        </footer>
+    </div>
+</body>
+{% endblock %}
