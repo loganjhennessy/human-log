@@ -5,6 +5,9 @@ WORKDIR /app
 # Setup alpine for building python packages
 RUN apk add build-base libffi-dev openssl-dev
 
+# Lets print statements come out when running behind gunicorn
+ENV PYTHONUNBUFFERED=1
+
 # Install poetry, using method from:
 # https://stackoverflow.com/questions/53835198/integrating-python-poetry-with-docker
 RUN pip install --upgrade pip

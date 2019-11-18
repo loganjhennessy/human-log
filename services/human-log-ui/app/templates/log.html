@@ -3,7 +3,7 @@
 <head>
     {% include "responsives.html" %}
     <title>The Human Log</title>
-    {% include "styles.html" %}
+    {% include "includes.html" %}
 </head>
 {% endblock %}
 {% block body %}
@@ -16,15 +16,15 @@
   		<div class="collapse navbar-collapse" id="navbarNav">
 		    <ul class="navbar-nav">
 				<li class="nav-item active">
-					<a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
+					<a class="nav-link logout" href="/logout">Logout</a>
 				</li>
 		    </ul>
 		</div>
 	</nav>
 	<div class="container w-100 p-3">
-		<form>
+		<form action="javascript:submitLog()">
 		    <div class="form-group">
-				<textarea autofocus class="form-control log"></textarea>
+				<textarea placeholder="Go ahead... write it down..." autofocus class="form-control log" id="log-input"></textarea>
 			</div>
 			<button class="btn btn-outline-dark" type="submit">Log</button>
 		</form>

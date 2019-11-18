@@ -7,6 +7,7 @@ from flask import Flask
 from flask import jsonify
 from flask import redirect
 from flask import render_template
+from flask import request
 from flask import session
 from flask import url_for
 from authlib.flask.client import OAuth
@@ -63,6 +64,14 @@ def index():
 @requires_auth
 def log():
     return render_template("log.html")
+
+
+@app.route('/note', methods=['POST'])
+def note():
+    print('It actually worked!')
+    print(f"Log generated at: {request.form['ts']}")
+    print(f"Log contents: {request.form['note']}")
+    return f"Success"
 
 
 @app.route('/callback')
