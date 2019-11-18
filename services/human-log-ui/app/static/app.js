@@ -1,9 +1,9 @@
 function submitLog() {
 	now = Date.now();
-	logData = document.getElementById('log-input').value;
+	logData = $("#log-input").val();
 
 	console.log(logData);
-	console.log(now)
+	console.log(now);
 
 	data = {
 		ts: now,
@@ -12,5 +12,8 @@ function submitLog() {
 
 	$.post("/note", data, function(data, status){
 		console.log(`Status: ${status}`)
-	})
+	});
+
+	$("#log-input").val("");
+	$("#log-input").attr("placeholder", "Log something else...")
 }
